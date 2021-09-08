@@ -1,0 +1,297 @@
+/* Paleta de colores que se utiliza para CSS */
+:root {
+    --blanco:#ffffff;
+    --negro:#212121;
+    --primario:#007bff;         
+    --secundario: #ff9217;
+    --azul: #0C1027;
+    --texto: #509fff;
+    --gris: #565656;
+}
+
+/* < ------------------------------------------------------------------------------------------------------------------------------------------------------------------ > */
+/*Globales */
+/* < ------------------------------------------------------------------------------------------------------------------------------------------------------------------ > */
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+  }
+
+body { 
+    font-size: 16px;                        /* Truco que utilizaron para cambiar la medida de px a rem de manera exacta --->  1 rem = 10 px */                                       
+    font-family: 'Inter', sans-serif;  
+    background-image: linear-gradient(to top, #bdbdbd 0%, var(--blanco) 100%);     
+}
+
+.contenedor {
+    max-width: 120rem;
+    margin: 0 auto 0 auto;  /* margin: 0 auto */
+    /*
+    margin-top: 0;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: auto;
+    */
+}
+
+.boton {
+    background-color: var(--primario);
+    color: var(--blanco);
+    padding: 1rem 3rem;
+    margin-top: 1rem;
+    font-size: 2rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 1rem;
+    text-align: center;
+    width: 85%;
+    border: none;
+}
+
+@media (min-width: 480px) {
+    .boton {
+        width: auto;
+    }
+}
+
+.boton:hover {
+    cursor: pointer;
+    background-color: #0069d9;
+}
+
+.sombra {
+    -webkit-box-shadow: 8px 6px 15px 5px rgba(0,0,0,0.46);
+    -moz-box-shadow: 8px 6px 15px 5px rgba(0,0,0,0.46);
+    box-shadow: 8px 6px 15px 5px rgba(0,0,0,0.46);
+    background-color: var(--blanco);
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.servicios,
+.navegacion-principal,
+.formulario {
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+}
+
+/* < ------------------------------------------------------------------------------------------------------------------------------------------------------------------ > */
+/*tipografia */ 
+/* < ------------------------------------------------------------------------------------------------------------------------------------------------------------------ > */
+
+h1 {
+    font-size: 3.8rem; 
+    color: var(--blanco);
+}
+
+h2 {
+    font-size: 2.8rem; 
+}
+
+h3 {
+    font-size: 1.8rem; 
+}
+
+h1,h2,h3 {
+    text-align: center;   
+} 
+/* < ------------------------------------------------------------------------------------------------------------------------------------------------------------------ > */
+/* Utilidades */
+/* < ------------------------------------------------------------------------------------------------------------------------------------------------------------------ > */
+
+.w-sm-100 {
+    width: 100%;
+}
+@media (min-width: 768px) {
+     .w-sm-100 {
+         width: auto;
+     }
+}
+
+.flex {
+    display: flex;
+}
+
+.alinear-derecha{
+    justify-content: flex-end;
+}
+
+.p-0{
+    padding: 0;
+    margin: 0;
+}
+
+.bg {
+    background-color: var(--azul);
+}
+
+.bg-titulo {
+    background-image: url(../img/banner.jpg);
+    background-size: 100%;
+    margin: 0;
+    padding: 2rem;
+}
+.bg-contacto {
+    background-image: linear-gradient(to bottom, #f7c490 0%, #f0a10e50 100%);    
+    margin: 0;
+    padding: 2rem;
+    border-top-right-radius: 2rem;
+    border-top-left-radius: 2rem;
+}
+.bg-social {
+    background-image: linear-gradient(to top, #fdd096 0%, #f0a10e50 100%);    
+    margin: 0;
+    padding: 2rem;
+    border-bottom-right-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+}
+
+@media (min-width: 768px) {
+    .bg-titulo {
+        background-repeat: no-repeat;
+    }
+}
+
+/* < ------------------------------------------------------------------------------------------------------------------------------------------------------------------ > */
+/* Title */
+/* < ------------------------------------------------------------------------------------------------------------------------------------------------------------------ > */
+
+.titulo span {
+    font-size: 2rem;   
+}
+
+/* < ------------------------------------------------------------------------------------------------------------------------------------------------------------------ > */
+/* Navegacion Principal */ 
+/* < ------------------------------------------------------------------------------------------------------------------------------------------------------------------ > */
+
+.navegacion-principal {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 768px) {
+     .navegacion-principal {
+         flex-direction:row;
+         justify-content: space-between;
+     }
+}
+
+.navegacion-principal a {
+    display: block;
+    text-align: center;
+    padding: 1.2rem;
+    color: var(--blanco);
+    text-decoration: none;
+    font-size: 1.6rem;
+    font-weight: bold;
+    border-radius: 0.7rem;
+}
+
+.navegacion-principal a:hover {
+    background-color: var(--primario);
+    color: var(--negrop);
+    transition: background-color .4s ease;
+}
+
+/* < ------------------------------------------------------------------------------------------------------------------------------------------------------------------ > */
+/* Hero */
+/* < ------------------------------------------------------------------------------------------------------------------------------------------------------------------ > */
+
+.hero {
+    background-image: url(../img/hero.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 450px;
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.contenido-hero {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenido-hero h2, 
+.contenido-hero p {
+    color: var(--blanco);
+}
+/* < ------------------------------------------------------------------------------------------------------------------------------------------------------------------ > */
+/* Servicios */
+/* < ------------------------------------------------------------------------------------------------------------------------------------------------------------------ > */
+
+@media (min-width: 768px) {                  /*grid: 20rem 80rem / 30rem 30rem; */
+    .servicios {                             /* Primero van ROWS y luego COLUMNS */
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* FR = UNA FRACCION DEL TOTAL */
+        column-gap: 2rem; 
+    } 
+}
+
+.servicio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.servicio h3 {
+    color: #a25600;
+}
+
+.servicio p {
+    line-height: 2;
+    text-align: center;
+}
+
+.servicio .iconos {
+    height: 15rem;
+    width: 15rem;
+    background-color: var(--secundario);
+    border-radius: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+
+@media (min-width: 768px) {                  /*grid: 20rem 80rem / 30rem 30rem; */
+    .contact {                             /* Primero van ROWS y luego COLUMNS */
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); /* FR = UNA FRACCION DEL TOTAL */
+        column-gap: 2rem; 
+        margin: 5rem;
+    } 
+}
+
+.servicio .icono_boton {
+    height:8rem;
+    width: 8rem;
+    background-color: var(--texto);
+    border: none;
+    border-radius: 3rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.servicio .icono_boton:hover {
+    background-color: var(--primario);
+    transition: background-color .7s ease;
+}
+/* < ------------------------------------------------------------------------------------------------------------------------------------------------------------------ > */
+/* Footer */
+/* < ------------------------------------------------------------------------------------------------------------------------------------------------------------------ > */
+
+.footer {
+    text-align: center;
+}
